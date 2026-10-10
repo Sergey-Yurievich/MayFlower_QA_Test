@@ -30,12 +30,17 @@ jobs:
           name: junit-report
           path: build/reports/tests/
 
-      - name: Upload allure-results
+      # Отчёт одним HTML-файлом: открывается из скачанного артефакта без веб-сервера.
+      - name: Build Allure report
+        if: always()
+        run: ./gradlew allureReport --single-file=true
+
+      - name: Upload Allure report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results
-          path: build/allure-results/
+          name: allure-report-contract
+          path: build/reports/allure-report/allureReport/
 
   api-tests:
     name: Regress (живой sandbox, информационно)
@@ -63,3 +68,14 @@ jobs:
         with:
           name: api-junit-report
           path: build/reports/tests/
+
+      - name: Build Allure report
+        if: always()
+        run: ./gradlew allureReport --single-file=true
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-regress
+          path: build/reports/allure-report/allureReport/

@@ -43,4 +43,7 @@ export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 - `api-tests` — `regressTest` против живого стенда, `continue-on-error: true`:
   стенд внешний и может быть недоступен, это не повод блокировать PR.
 
-Отчёты и `allure-results` выгружаются артефактами.
+Каждое задание выгружает артефактами JUnit-отчёт и Allure-отчёт:
+`allure-report-contract` и `allure-report-regress`. Allure-отчёт собран одним
+файлом `index.html`, поэтому открывается прямо из скачанного архива, без
+`allureServe`.
