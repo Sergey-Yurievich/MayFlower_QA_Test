@@ -34,23 +34,6 @@ export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 Флаг `-PrunSkipped` к любой задаче запускает и тесты, пропущенные через
 `@Disabled` с ID бага.
 
-## Стек
-
-| | | Зачем |
-|---|---|---|
-| Kotlin | 2.4.21 | Язык тестов — бонус по условию задания |
-| JUnit 5 | 5.14.4 | Движок, теги, `@Disabled` для тестов на дефекты |
-| REST Assured | 6.1.0 | HTTP-клиент с нативной поддержкой `multipart/form-data` и JSON-path |
-| WireMock | 3.13.2 | Контрактные тесты на фиксированных данных |
-| AssertJ | 3.27.7 | Fluent-ассерты, база для доменных ассертов |
-| Allure | 2.35.5 | Отчёт с шагами, приоритетами и приложенными запросами/ответами |
-| json-schema-validator | 6.1.0 | Валидация ответов по JSON Schema |
-| Gradle | 9.4.1, Kotlin DSL | Сборка, раздельные тестовые задачи по тегам |
-
-JDK 21 через `jvmToolchain(21)`. Абсолютный путь к JDK в репозиторий не
-коммитится: в CI toolchain скачивается автоматически (foojay resolver),
-локально достаточно `JAVA_HOME`.
-
 ## CI
 
 [`.github/workflows/tests.yml`](.github/workflows/tests.yml):
