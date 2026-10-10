@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GET /user/get — фактический контракт API на 2026-10-09 (включая утечку хеша пароля)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "username", "email", "password", "created_at", "updated_at"],
+    "properties": {
+      "id": { "type": "integer", "minimum": 1 },
+      "username": { "type": "string" },
+      "email": { "type": "string" },
+      "password": { "type": "string", "pattern": "^\\$2[aby]\\$" },
+      "created_at": { "type": "string", "minLength": 1 },
+      "updated_at": { "type": "string", "minLength": 1 }
+    }
+  }
+}

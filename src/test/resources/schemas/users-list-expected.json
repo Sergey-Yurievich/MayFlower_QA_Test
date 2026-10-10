@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GET /user/get — корректный контракт (пароль НЕ отдаётся)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "username", "email", "created_at", "updated_at"],
+    "properties": {
+      "id": { "type": "integer", "minimum": 1 },
+      "username": { "type": "string", "minLength": 1 },
+      "email": { "type": "string", "minLength": 3 },
+      "created_at": { "type": "string", "minLength": 1 },
+      "updated_at": { "type": "string", "minLength": 1 }
+    }
+  }
+}
